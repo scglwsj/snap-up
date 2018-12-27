@@ -2,3 +2,11 @@ mybatis:
   mapper_locations: classpath:mapping/*.xml
 server:
   port: 80
+spring:
+  datasource:
+    name: snap_up
+    url: jdbc:mysql://127.0.0.1:3306/snap_up
+    username: root
+    password: P@ssw0rd
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver

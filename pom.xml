@@ -137,13 +137,9 @@
             <execution>
               <id>mybatis generator</id>
               <phase>package</phase>
-              <goals>
-                <goal>generator</goal>
-              </goals>
             </execution>
           </executions>
           <configuration>
-            <vrbose>true</vrbose>
             <overwrite>true</overwrite>
             <configurationFile>
               src/main/resources/mybatis-generator.xml
