@@ -146,6 +146,19 @@
             </configurationFile>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.flywaydb</groupId>
+          <artifactId>flyway-maven-plugin</artifactId>
+          <version>4.1.0</version>
+          <configuration>
+            <user>root</user>
+            <password>P@ssw0rd</password>
+            <driver>com.mysql.jdbc.Driver</driver>
+            <url>jdbc:mysql://localhost:3306/snap_up</url>
+            <baseDir>db/migration</baseDir>
+            <baselineOnMigrate>true</baselineOnMigrate>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
