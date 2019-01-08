@@ -26,10 +26,6 @@ public class UserController {
     }
 
     private UserVO convertFromModel(UserModel userModel) {
-        if (userModel == null) {
-            return null;
-        }
-
         UserVO userVO = new UserVO();
         BeanUtils.copyProperties(userModel, userVO);
         return userVO;

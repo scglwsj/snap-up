@@ -4,6 +4,7 @@ import com.snapupproject.dao.UserDOMapper;
 import com.snapupproject.dao.UserPasswordDOMapper;
 import com.snapupproject.dataobject.UserDO;
 import com.snapupproject.dataobject.UserPasswordDO;
+import com.snapupproject.exception.UserNotFoundException;
 import com.snapupproject.service.UserModel;
 import com.snapupproject.service.UserService;
 import org.springframework.beans.BeanUtils;
@@ -25,7 +26,7 @@ public class UserServiceImpl implements UserService {
     public UserModel getUserById(Integer id) {
         UserDO userDO = userDOMapper.selectByPrimaryKey(id);
         if (userDO == null) {
-            return null;
+            throw new UserNotFoundException();
         }
         UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
 
@@ -33,9 +34,6 @@ public class UserServiceImpl implements UserService {
     }
 
     private UserModel convertFromDataObject(UserDO userDO, UserPasswordDO userPasswordDO) {
-        if (userDO == null) {
-            return null;
-        }
         UserModel userModel = new UserModel();
         BeanUtils.copyProperties(userDO, userModel);
 
